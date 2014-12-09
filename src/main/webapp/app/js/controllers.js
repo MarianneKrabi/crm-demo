@@ -92,7 +92,7 @@ function CompanyListCtrl($scope, Company) {
     $scope.companies = Company.query();
   }
 
-  $scope.deleteCompany = function(companyId) {
+/*  $scope.deleteCompany = function(companyId) {
       Company.delete(
           {
             id: companyId
@@ -104,6 +104,6 @@ function CompanyListCtrl($scope, Company) {
               $scope.companies = Company.query();
             }
           });
-  }
+  }*/
 
 }

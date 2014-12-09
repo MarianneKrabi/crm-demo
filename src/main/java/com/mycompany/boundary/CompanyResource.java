@@ -5,7 +5,6 @@ import javax.ws.rs.Path;
 
 import com.mycompany.control.CompanyService;
 import com.mycompany.entity.Company;
-import com.mycompany.entity.Customer;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -42,7 +41,7 @@ public class CompanyResource {
         }
         return Response.ok(companies).build();
     }
-
+/*
     @POST
     public Response saveCompany(@Context UriInfo uriInfo, Company company)
             throws URISyntaxException {
@@ -78,5 +77,5 @@ public class CompanyResource {
         companyService.deleteCompany(companyId);
         return Response.ok().build();
     }
-
+*/
 }

@@ -1,13 +1,12 @@
 package com.mycompany.control;
 
 import com.mycompany.entity.Company;
-import com.mycompany.entity.Customer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,9 +20,9 @@ public class CompanyService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public void saveCompany(Company company) {
-        entityManager.persist(company);
-    }
+//    public void saveCompany(Company company) {
+//        entityManager.persist(company);
+//    }
 
     public List<Company> findAllCompanies() {
         TypedQuery<Company> query = entityManager.createQuery(
@@ -31,6 +30,7 @@ public class CompanyService {
         List<Company> companies = (List<Company>) query.getResultList();
         for (int i = 0; i<companies.size(); ++i) {
             companies.get(i).setEmployees(numEmployees(companies.get(i).getName()));
+            companies.get(i).setCreateDate(new Date());
         }
         return companies;
     }
@@ -41,14 +41,14 @@ public class CompanyService {
         query.setParameter("companyName", companyName);
         return ((Long) query.getSingleResult()).intValue();
     }
-
+/*
     public Company findCompanyById(Long id) {
         return entityManager.find(Company.class, id);
     }
 
-    public void updateCompany(Company company) {
+   public void updateCompany(Company company) {
         entityManager.merge(company);
-    }
+    }*/
 
     public List<Company> findCompanies(String searchString) {
 
@@ -93,11 +93,11 @@ public class CompanyService {
         return query.getResultList();
     }
 
-    public void deleteCompany(Long id) {
+/*    public void deleteCompany(Long id) {
         Company company = findCompanyById(id);
         if (company != null) {
             entityManager.remove(company);
         }
-    }
+    }*/
 
 }

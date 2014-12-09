@@ -44,10 +44,6 @@ angular.module('CrmDemo.services', [ 'ngResource' ]).value('Debouncer', {
         var Company = $resource(
             'http://localhost\\:8080/crm-demo/rest/company/:id', {
                 id : '@id'
-            }, {
-                update : {
-                    method : 'PUT'
-                }
             });
 
       return Company;
