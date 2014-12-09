@@ -3,6 +3,7 @@ package com.mycompany.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 /**
  * Company entity, representing a company object that can be persisted to a
@@ -18,6 +19,9 @@ public class Company {
     @GeneratedValue
     private Long id;
     private String name;
+    private Integer employees = 0;
+    private Date createDate;
+
 
     /**
      * Default constructor for JAX-RS (object <> JSON serialization)
@@ -25,8 +29,10 @@ public class Company {
     public Company() {
     }
 
-    public Company(String name) {
+    public Company(String name, Integer employees, Date createDate) {
         this.name = name;
+        this.employees = employees;
+        this.createDate = createDate;
     }
 
     // -------- getters and setters
@@ -47,4 +53,11 @@ public class Company {
         this.name = name;
     }
 
+    public Integer getEmployees() { return employees; }
+
+    public void setEmployees(Integer employees) { this.employees = employees; }
+
+    public Date getCreateDate() { return createDate; }
+
+    public void setCreateDate(Date date) { this.createDate = date; }
 }

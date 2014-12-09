@@ -1,6 +1,7 @@
 package com.mycompany.control;
 
 import com.mycompany.entity.Customer;
+import com.mycompany.entity.Company;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

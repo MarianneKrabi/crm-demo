@@ -16,6 +16,10 @@ angular.module('CrmDemo', [ 'CrmDemo.filters', 'CrmDemo.services', 'CrmDemo.dire
                 templateUrl : 'app/partials/customer-detail.html',
                 controller : CustomerDetailCtrl
             });
+            $routeProvider.when('/company-list', {
+                templateUrl : 'app/partials/company-list.html',
+                controller : CompanyListCtrl
+            });
             $routeProvider.otherwise({
                 redirectTo : '/list'
             });

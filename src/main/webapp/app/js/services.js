@@ -29,14 +29,26 @@ angular.module('CrmDemo.services', [ 'ngResource' ]).value('Debouncer', {
     'Customer',
     function($resource) {
 
-      var Customer = $resource(
-          'http://localhost\\:8080/crm-demo/rest/customer/:id', {
-            id : '@id'
-          }, {
-            update : {
-              method : 'PUT'
-            }
-          });
+        var Customer = $resource(
+            'http://localhost\\:8080/crm-demo/rest/customer/:id', {
+                id: '@id'
+            }, {
+                update: {
+                    method: 'PUT'
+                }
+            });
+        return Customer;
+    }).value('version', '0.1').factory(
+    'Company',
+    function($resource) {
+        var Company = $resource(
+            'http://localhost\\:8080/crm-demo/rest/company/:id', {
+                id : '@id'
+            }, {
+                update : {
+                    method : 'PUT'
+                }
+            });
 
-      return Customer;
+      return Company;
     });
